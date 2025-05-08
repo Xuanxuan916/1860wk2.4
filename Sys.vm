@@ -12,10 +12,10 @@ function Sys.min 0
     push argument 0
     push argument 1
     lt
-    if-goto firNum
-    goto secNum
+    if-goto firNum // if argument[0] < argument[1]，jump to firNum
+    goto secNum // else jump to secNum
 label firNum
-    push argument 0
+    push argument 0 
     return  
 label secNum
     push argument 1
@@ -37,8 +37,8 @@ function Sys.max 0
     push argument 0
     push argument 1
     gt
-    if-goto firNum
-    goto secNum
+    if-goto firNum // if argument[0] > argument[1], jump to firNum
+    goto secNum // else jump to secNum
 label firNum
     push argument 0
     return  
@@ -70,9 +70,9 @@ function Sys.range 2
     add
     pop pointer 1
     push that 0
-    pop local 0
+    pop local 0 // local[0] is current minimum value 
     push local 0
-    pop local 1
+    pop local 1 // local[1] is current maximum value 
     push argument 1
     push constant 2
     sub
@@ -80,7 +80,7 @@ function Sys.range 2
 label LOOP
     push argument 1
     push constant 0
-    lt
+    lt   // check if < 0 
     not
     if-goto Cont
     goto EndLoop
